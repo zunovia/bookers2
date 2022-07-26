@@ -1,0 +1,68 @@
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %><font color="red">errors prohibited this obj from being saved:</font>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" style="background-color: white;">
+      <h2>User Info Index</h2>
+
+       <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th>name</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>Introduction</th>
+            <th></th>
+          </tr>
+            <% if @user == current_user %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <% end %>
+        </tbody>
+
+      </table>
+        <%= form_with model: @book do |f| %>
+    <h6>Title</h6>
+      <%= f.text_field :title %>
+    <h6>Opinion</h6>
+      <%= f.text_area :body %><br>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
+    </div>
+    <div class="col-lg-8">
+ <h2>Books Index</h2>
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>Title</th>
+       <th></th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% #@books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+         <th></th>
+        <td><%= book.body %></td>
+        <td><%= link_to 'Delete', book_path(book.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+
+  </div>
+</div>

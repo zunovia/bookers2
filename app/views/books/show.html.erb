@@ -1,0 +1,28 @@
+<% if flash[:success]%>
+<%= flash[:success]%>
+<%end%>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" style="background-color: light-green;">
+      <h2>User Info</h2>
+    </div>
+
+
+<div class="col-lg-8">
+<table class="table table-striped">
+<br>
+<h2>Books</h2>
+<div>
+  <p>本のタイトル：<%= @book.title %></p>
+  <p>感想：<%= @book.body %></p>
+  <p>ユーザーネーム：<%= @book.user.name %></p>
+  <% if @book.user == current_user %>
+    <%= link_to "Delete", book_path(@book), method: :delete %>
+  <% end %>
+</div>
+
+
+</tabel>
+</div>
