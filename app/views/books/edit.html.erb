@@ -1,18 +1,13 @@
+
 <br>
 <br>
 <body>
 <div style="width: 400px; margin: auto;">
-<br>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>
-    <% flash[:alert]%> errors prohibited this book from being saved:
-      <ul>
-      <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-      <% end %>
-      </ul>
+<% if flash[:notice]%>
+<%= flash[:notice]%>
+<%end%>
 
+<br>
 <h3>Editing Book</h3>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>
@@ -29,7 +24,7 @@
     <h6>Opinion</h6>
     <%= f.text_area :body , size: "43" %>
     <br>
-    <%= f.submit 'Update Book' ,class: "btn btn-lg btn-primary" %>
+    <%= f.submit 'Update Book', class: "btn btn-lg btn-primary" %>
     <% end %>
     <br>
     <tr>
