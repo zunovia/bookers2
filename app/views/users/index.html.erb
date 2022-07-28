@@ -2,30 +2,37 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4" style="background-color: white;">
-      <h2>User Info Index</h2>
+      <h2>User Info</h2>
       <%= image_tag current_user.get_profile_image(100,100) %>
       <table class="table table-striped">
         <tbody>
           <tr>
             <th>name</th>
+            <th><%= @user.name %></th>
             <th></th>
           </tr>
 
           <tr>
             <th>introduction</th>
+            <th><%= @user.introduction %></th>
             <th></th>
-          </tr>
-            <% if @user == current_user %>
-            <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
-            <% end %>
+           </tr>
         </tbody>
       </table>
 
+        <% if @user == current_user %>
+          <%= link_to edit_user_path(@user), class: 'post-btn-lg' do %>
+            <button style="width:340px; height:40px;" type="submit"><i class="fas fa-user-cog">
+              </i></button>
+        <% end %>
+        <% end %>
+
+
       <%= form_with model: @book do |f| %>
       <h6>Title</h6>
-      <%= f.text_field :title %>
+      <%= f.text_field :title , size: "40" %>
       <h6>Opinion</h6>
-      <%= f.text_area :body %><br>
+      <%= f.text_area :body , size: "43" %><br>
       <%= f.submit 'Create Book' ,class: "btn btn-lg btn-primary" %>
       <% end %>
     </div>

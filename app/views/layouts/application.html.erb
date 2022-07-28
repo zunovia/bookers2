@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2 ryota Kaneda</title>
+    <title>Bookers2 ryota kaneda</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
@@ -14,48 +14,67 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <body style="padding-top:0px">
           <div class="container">
-            <a class="navbar-brand p-1" href="/"><font color="white">Bookers　</font></a>
+
+              <%= link_to root_path, class: 'nav-link text-white' do %>
+                <h5>Bookers</h5>
+              <% end %>
+
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
               </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-            <#a class="nav-link" href="/"><#font color="white">Home</#font></#a>
+             <li class="nav-item active">
 
             <% if user_signed_in? %>
              <li class="nav-item">
-              <%= link_to "Home", user_path(current_user), class: 'nav-link text-light' %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+              <p><i class="fas fa-home fa-fw"></i>Home</p>
+              <% end %>
+            </li>
+             <li class="nav-item">
+              <%= link_to users_path, class: 'nav-link text-white' do%>
+              <p><i class="fas fa-users fa-fw"></i>Users</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', users_path, class: 'nav-link text-light' %>
+              <%= link_to books_path, class: 'nav-link text-white' do%>
+              <p><i class="fas fa-book-open fa-fw"></i>Books</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Books', books_path, class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do%>
+              <p><i class="fas fa-sign-out-alt fa-fw"></i>Log out</p>
+              <% end %>
             </li>
             <% else %>
+             <li class="nav-item">
+              <%= link_to root_path, class: 'nav-link text-white' do %>
+              <p><i class="fas fa-home fa-fw"></i>Home</p>
+              <% end %>
             <li class="nav-item">
-              <%= link_to "Home", root_path, class: 'nav-link text-light' %>
+              <%= link_to about_path, class: 'nav-link text-white' do%>
+              <p><i class="fas fa-link fa-fw"></i>About</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "About", about_path, class: 'nav-link text-light' %>
+              <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+              <p><i class="fas fa-user-plus fa-fw"></i>Sign up</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
-            </li>
+              <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+              <p><i class="fas fa-sign-in-alt"></i>Log in</p>
             <% end %>
-            </ul>
-          </div>
+           <% end %>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+
+  </header>
     <main class="mb-auto">
     <%= yield %>
     </main>

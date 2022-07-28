@@ -13,7 +13,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4" style="background-color: white;">
-      <h2>User Info Index</h2>
+      <h2>User Info</h2>
 
        <table class="table table-striped">
         <tbody>
@@ -25,7 +25,7 @@
             <th>Introduction</th>
             <th></th>
           </tr>
-            <% if @user == current_user %>
+        <% if @user == current_user %>
         <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
         <% end %>
         </tbody>
@@ -42,27 +42,7 @@
     </div>
     <div class="col-lg-8">
  <h2>Books Index</h2>
-<table class="table table-striped">
-
-  <thead>
-    <tr>
-      <th>Title</th>
-       <th></th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% #@books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-         <th></th>
-        <td><%= book.body %></td>
-        <td><%= link_to 'Delete', book_path(book.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table table-striped">
   </div>
-
   </div>
 </div>

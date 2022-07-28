@@ -1,4 +1,7 @@
- <br>
+<br>
+<br>
+<div class="container">
+<div class="mx-auto" style="width: 700px;">
 <h2>User Info</h2>
 <%= form_with model: @user do |f| %>
   <label for="inputName">Name</label><br>
@@ -11,3 +14,5 @@
   <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> <br>
   <%= f.submit "Update User" ,class: "btn btn-lg btn-primary"  %>
 <% end %>
+</div>
+</div>
