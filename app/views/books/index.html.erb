@@ -8,10 +8,10 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" style="background-color: white;">
+    <div class="col-lg-3" style="background-color: white;">
       <h2>User Info</h2>
       <%= image_tag @user.get_profile_image(100,100) %>
-       <table class="table table-striped">
+       <table class="table table-white">
           <tbody>
             <tr>
               <th>name</th>
@@ -27,7 +27,7 @@
 
         <% if @user == current_user %>
           <%= link_to edit_user_path(@user), class: 'post-btn-lg' do %>
-            <button style="width:340px; height:40px;" type="submit"><i class="fas fa-user-cog">
+            <button style="width:260px; height:40px;" type="submit"><i class="fas fa-user-cog">
             </i></button>
         <% end %>
         <% end %>
@@ -37,16 +37,16 @@
       <h2>New book</h2>
         <%= form_with model: @book do |f| %>
           <h6>Title</h6>
-          <%= f.text_field :title, size: "40"  %>
+          <%= f.text_field :title, size: "30"  %>
           <h6>Opinion</h6>
-          <%= f.text_area :body, size: "43"  %><br>
+          <%= f.text_area :body, size: "33"  %><br>
           <%= f.submit 'Create Book',class: "btn btn-lg btn-primary" %>
         <% end %>
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-lg-8" style="background-color: white;">
       <h2>Books</h2>
-        <table class="table table-striped">
+        <table class="table table-white">
           <thead>
             <tr>
               <th></th>

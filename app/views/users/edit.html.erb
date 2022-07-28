@@ -17,12 +17,13 @@
   <label for="inputName">Name</label><br>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name"%><br>
   <br>
+  <label for="inputImage">Profile Image</label> <br>
+  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> <br>
+
   <label for="inputName">Introduction</label> <br>
   <%= f.text_field :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction"%><br>
   <br>
-  <label for="inputImage">Profile Image</label> <br>
-  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> <br>
-  <%= f.submit "Update User" ,class: "btn btn-lg btn-primary"  %>
+  <%= f.submit "Update User" ,class: "btn btn-lg btn-secondary"  %>
 <% end %>
 </div>
 </div>
