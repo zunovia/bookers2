@@ -1,17 +1,6 @@
 <br>
 <br>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>
-    <% flash[:alert]%> errors prohibited this book from being saved:
-      <ul>
-      <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-      <% end %>
-      </ul>
-
-<p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
     <div class="col-lg-4" style="background-color: white;">
