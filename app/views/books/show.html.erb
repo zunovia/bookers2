@@ -74,8 +74,10 @@
               <td><%= image_tag @user.get_profile_image(100,100) %></td>
               <td><%= link_to @book.title,book_path(@book.id) %></td>
               <td><%= @book.body %></td>
+              <% if @user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success" %></td>
               <td><%= link_to "Destroy", book_path(@book.id), method: :delete,class:"btn btn-danger","data-confirm" => "本当に削除しますか？"%></td>
+              <% end %>
               </tr>
           </tbody>
         </table>
