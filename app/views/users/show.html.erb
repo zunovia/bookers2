@@ -1,17 +1,19 @@
-<% if flash[:success]%>
-<%= flash[:success]%>
-<%end%>
-<% if @user.errors.any? %>
-  <%= @user.errors.count %><font color="red">errors prohibited this obj from being saved:</font>
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-<div class="container">
+
+<div class="container px-5 px-sm-0">
  <div class="row">
-  <div class="col-md-3" style="background-color: white;">
+  <div class="col-12 col-md-3" style="background-color: white;">
+    <% if flash[:success]%>
+    <%= flash[:success]%>
+    <%end%>
+    <% if @user.errors.any? %>
+    <%= @user.errors.count %><font color="red">errors prohibited this obj from being saved:</font>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+    </ul>
+    <% end %>
+
    <h2>User Info</h2>
      <%= image_tag @user.get_profile_image(100,100) %>
      <table class="table table-white">
@@ -26,12 +28,11 @@
         </tr>
       </thead>
      </table>
-        <% if @user == current_user %>
-          <%= link_to edit_user_path(@user), class: 'post-btn-lg' do %>
-            <button style="width:260px; height:40px;" type="submit"><i class="fas fa-user-cog">
-              </i></button>
-        <% end %>
-        <% end %>
+
+    <div class="row">
+     <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-wrapper col-11 mx-auto" do %>
+      <p><i class="fas fa-user-cog"></i></p><% end %>
+    </div>
   <br>
   <br>
   <br>
@@ -52,12 +53,12 @@
     <h6>Opinion</h6>
     <%= f.text_area :body , size: "33" %>
     <br>
-    <%= f.submit 'Create Book',class: "btn btn-lg btn-primary" %>
+    <%= f.submit 'Create Book',class: "btn btn-lg btn-success" %>
    <% end %>
  </div>
 
-<div class="col-md-8" style="background-color: white;">
-  <table class="table table-white">
+<div class="col-12 col-md-8 offset-md-1" style="background-color: white;">
+  <table class="table table-hover table-inverse">
    <h2>Books</h2>
     <thead>
       <tr>

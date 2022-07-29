@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3" style="background-color: white;">
+    <div class="col-12 col-md-3" style="background-color: white;">
       <h2>User Info</h2>
       <%= image_tag @user.get_profile_image(100,100) %>
       <table class="table table-white">
@@ -19,12 +19,10 @@
         </tbody>
       </table>
 
-        <% if @user == current_user %>
-          <%= link_to edit_user_path(@user), class: 'post-btn-lg' do %>
-            <button style="width:260px; height:40px;" type="submit"><i class="fas fa-user-cog">
-              </i></button>
-        <% end %>
-        <% end %>
+    <div class="row">
+     <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-wrapper col-11 mx-auto" do %>
+      <p><i class="fas fa-user-cog"></i></p><% end %>
+    </div>
 
     <br>
     <br>
@@ -34,12 +32,12 @@
       <%= f.text_field :title , size: "30" %>
       <h6>Opinion</h6>
       <%= f.text_area :body , size: "33" %><br>
-      <%= f.submit 'Create Book' ,class: "btn btn-lg btn-primary" %>
+      <%= f.submit 'Create Book' ,class: "btn btn-lg btn-success" %>
       <% end %>
     </div>
 
-<div class="col-md-8">
-  <table class="table table-white" style="background-color: white;">
+<div class="col-12 col-md-8 offset-md-1">
+  <table class="table table-hover table-inverse">
    <h2>Users</h2>
     <thead>
       <tr>

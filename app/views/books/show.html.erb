@@ -1,11 +1,10 @@
 
-<% if flash[:success]%>
-<%= flash[:success]%>
-<%end%>
-
-<div class="container">
+<div class="container  px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-3" style="background-color: white;">
+    <div class="ccol-12 col-md-3" style="background-color: white;">
+        <% if flash[:success]%>
+        <%= flash[:success]%>
+        <%end%>
       <h2>User Info</h2>
       <%= image_tag @user.get_profile_image(100,100) %>
        <table class="table table-white">
@@ -21,25 +20,26 @@
           </tbody>
         </table>
 
-        <% if @user == current_user %>
-          <%= link_to edit_user_path(@user), class: 'post-btn-lg' do %>
-            <button style="width:260px; height:40px;" type="submit"><i class="fas fa-user-cog">
-              </i></button>
-        <% end %>
-        <% end %>
-
+    <div class="row">
+     <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-wrapper col-11 mx-auto" do %>
+      <p><i class="fas fa-user-cog"></i></p><% end %>
+    </div>
+        <br>
+        <br>
+        <br>
+       <h3>New book</h3>
        <%= form_with model: @newbook do |f| %>
           <h6>Title</h6>
           <%= f.text_field :title, size: "30"  %>
           <h6>Opinion</h6>
           <%= f.text_area :body, size: "33"  %><br>
-          <%= f.submit 'Create Book',class: "btn btn-lg btn-primary" %>
+          <%= f.submit 'Create Book',class: "btn btn-lg btn-success" %>
         <% end %>
     </div>
 
-    <div class="col-md-8" style="background-color: white;">
+    <div class="col-12 col-md-8 offset-md-1" style="background-color: white;">
       <h2>Book detail</h2>
-        <table class="table table-white">
+        <table class="table table-hover table-inverse">
           <thead>
             <tr>
               <th></th>

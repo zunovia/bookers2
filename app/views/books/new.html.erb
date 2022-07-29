@@ -1,18 +1,15 @@
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %><font color="red">errors prohibited this obj from being saved:</font>
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<p id="notice"><%= notice %></p>
-
-<div class="container">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-3" style="background-color: white;">
+    <div class="col-12 col-md-3" style="background-color: white;">
+    <% if @book.errors.any? %>
+     <%= @book.errors.count %><font color="red">errors prohibited this obj from being saved:</font>
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+      <% end %>
       <h2>User Info</h2>
 
        <table class="table table-white">
@@ -40,9 +37,9 @@
   <% end %>
 
     </div>
-    <div class="col-md-8">
+    <div class="col-12 col-md-8 offset-md-1">
  <h2>Books Index</h2>
-  <table class="table table-white">
+  <table class="table table-hover table-inverse">
   </div>
   </div>
 </div>
